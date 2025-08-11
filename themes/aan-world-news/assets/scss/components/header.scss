@@ -1,0 +1,64 @@
+.site-header {
+  &__top {
+    color: var(--white);
+    background-color: var(--red);
+  }
+
+  &__skip-to-content {
+    position: fixed;
+    top: -5em;
+    left: 50%;
+    padding: 16px 24px;
+    color: var(--white);
+    background-color: var(--dark-red);
+    transform: translateX(-50%);
+    transition: top 300ms ease-in-out;
+
+    &:focus {
+      top: 0;
+    }
+  }
+
+  &__grid {
+    grid-template-columns: max-content 1fr;
+    padding: 20px 0;
+  }
+
+  &__site-logo {
+    @include size(auto, 52px);
+    display: block;
+    justify-self: start;
+
+    svg {
+      @include size(auto, 52px);
+
+      @include screen-below($portrait) {
+        @include size(auto, 39px);
+      }
+    }
+
+    @include screen-above($portrait) {
+      margin-left: 10px;
+    }
+
+    @include screen-below($portrait) {
+      @include size(auto, 39px);
+    }
+  }
+
+  &__user-navigation {
+    display: flex;
+    justify-content: end;
+  }
+
+  &__user-links {
+    li {
+      line-height: 1;
+    }
+
+    a {
+      padding: 14px;
+      color: var(--white);
+    }
+  }
+}

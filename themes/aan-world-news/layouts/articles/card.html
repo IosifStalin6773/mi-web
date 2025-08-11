@@ -1,0 +1,21 @@
+<article class="article-card">
+  <a class="no-underline" href="{{ .Permalink }}">
+
+    <div>
+
+      {{ if (.GetTerms "tags") }}
+
+        {{ range (.GetTerms "tags") }}
+          <span class="tag">{{ .LinkTitle }}</span>
+        {{ end }}
+
+      {{ end }}
+
+      <span class="h3 red">
+        {{ .Title }}
+      </span>
+
+    </div>
+
+  </a>
+</article>

@@ -1,0 +1,28 @@
+<nav class="site-header__user-navigation" aria-label="internal">
+  <ul
+    class="site-header__user-links"
+    role="list"
+  >
+
+    {{ $currentPage := . }}
+
+    {{ range .Site.Menus.internal }}
+
+      {{ if .URL }}
+        <li class="inline-link">
+          <a
+            class="no-underline"
+            {{ if $currentPage.IsMenuCurrent "internal" . }}
+              aria-current="page"
+            {{ end }}
+              href="{{ .URL }}"
+          >
+            {{ .Name }}
+          </a>
+        </li>
+      {{ end }}
+
+    {{ end }}
+
+  </ul>
+</nav>

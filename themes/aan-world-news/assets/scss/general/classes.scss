@@ -1,0 +1,49 @@
+.disabled {
+  cursor: not-allowed;
+  opacity: .75;
+}
+
+.padding {
+  @include screen-above($laptop) {
+    padding: 0 14px;
+  }
+}
+
+.inline-link {
+  display: inline-block;
+}
+
+.gray-background {
+  background-color: var(--gray);
+}
+
+.visually-hide {
+  @include size(1px);
+  position: absolute;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.red {
+  color: var(--red);
+}
+
+.bottom-spacing {
+  padding: 35px;
+}
+
+.page-spacing {
+  padding: 32px 0 40px;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.tag {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--dark-gray);
+  font-weight: 400;
+}

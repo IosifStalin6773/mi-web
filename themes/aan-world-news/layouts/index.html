@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+  <section class="list gray-background">
+    <div class="container container--wide container--white">
+
+      <h1 class="visually-hide">Recent Articles</h1>
+
+      <ul
+        class="grid grid--four-column list__grid"
+        role="list"
+      >
+
+        {{ range .Site.RegularPages }}
+
+          {{ if eq .Params.featured true }}
+
+            <li class="list__featured">
+
+              {{ .Render "featured" }}
+
+            </li>
+
+          {{ else }}
+
+            <li>
+
+              {{ .Render "summary" }}
+
+            </li>
+
+          {{ end }}
+
+        {{ end }}
+
+      </ul>
+
+    </div>
+  </section>
+
+  {{ partial "seo/list-schema.html" . }}
+
+{{ end }}

@@ -1,0 +1,45 @@
+.list {
+  &__grid {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  &__featured {
+    @include screen-above($portrait) {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    @include screen-between($mobile-sm, $portrait) {
+      grid-column: span 2;
+    }
+  }
+
+  &__article {
+    position: relative;
+    height: 100%;
+    padding: 20px;
+    border: 1px solid var(--border);
+
+    img {
+      margin-bottom: 10px;
+
+      @include screen-above($tablet) {
+        margin-bottom: 15px;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__article-link {
+    position: absolute;
+    inset: 0;
+  }
+}

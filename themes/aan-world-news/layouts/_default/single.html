@@ -1,0 +1,121 @@
+{{ define "main" -}}
+
+<div class="post gray-background">
+  <div class="container container--wide container--white">
+    <div class="post__container grid page-spacing">
+
+      <div class="post__aside-wrap">
+
+        {{ if .Params.asidePhoto }}
+
+          <aside class="post__aside">
+            <figure>
+              
+              <img
+                class="lazy"
+                src="{{ .Params.asidePhoto }}"
+                alt="{{ .Params.asideAltText }}"
+              />
+
+              {{ if .Params.asideText }}
+                <figcaption>
+                  <p>{{ .Params.asideText }}</p>
+                </figcaption>
+              {{ end }}
+
+            </figure>
+          </aside>
+
+        {{ end }}
+
+      </div>
+
+      <article class="content">
+
+        <div class="post__header padding">
+
+          {{ if .Params.title }}
+            <h1>{{ .Title }}</h1>
+          {{ end }}
+
+          {{ if .Params.author }}
+            <span class="post__author h4">
+              by <a class="red" href="{{ .Params.profileURL }}">{{ .Params.author }}</a>
+            </span>
+          {{ end }}
+
+          <time class="h4" datetime="{{ .PublishDate.Format "2006-01-02" }}">
+            {{ .PublishDate.Format "01/02/2006 15:04 EDT" }}
+          </time>
+
+        </div>
+
+        {{ if .Params.description }}
+          <p class="post__description h4 padding">{{ .Params.description }}</p>
+        {{ end }}
+
+        {{ .Content }}
+
+        {{ range .Params.profiles }}
+
+          {{ with $.Site.GetPage "taxonomyTerm" (printf "profiles/%s" (urlize .)) }}
+
+            {{ $classes := "" }}
+
+            {{ if .Params.photo }}
+              {{ $classes = "post__footer grid" }}
+            {{ else }}
+              {{ $classes = "post__footer" }}
+            {{ end }}
+
+            <footer class="{{ $classes }}">
+
+              {{ if .Params.photo }}
+                <img
+                  class="lazy"
+                  src="{{ .Params.photo }}"
+                  alt=""
+                  loading="lazy"
+                />
+              {{ end }}
+
+              <p>{{ .Params.bio }}</p>
+
+            </footer>
+
+          {{ end }}
+
+        {{ end }}
+
+      </article>
+
+      {{ $related := .Site.RegularPages.Related . | first 3 }}
+
+      {{ with $related }}
+
+        <div class="post__related">
+
+          <h2>Related Posts</h2>
+
+          <ul
+            class="grid gap"
+            role="list"
+          >
+            {{ range . }}
+              <li>
+                {{ .Render "card" }}
+              </li>
+            {{ end }}
+          </ul>
+
+        </div>
+
+      {{ end }}
+
+    </div>
+  </div>
+</div>
+
+{{ partial "seo/single-schema.html" . }}
+
+{{- end }}

@@ -1,0 +1,174 @@
+{{ define "main" }}
+
+<section class="gray-background">
+  <div class="container container--wide container--white">
+    <div class="container container--small page-spacing">
+
+      <h1>{{ .Title }}</h1>
+
+      <form
+        class="grid grid--two-column form"
+        name="contact"
+        action="/success/"
+        netlify
+      >
+
+        <div class="grid form__field">
+
+          <label for="email">
+            Your Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="johnsmith@mail.com"
+          />
+
+        </div>
+
+        <div class="grid form__field">
+
+          <label for="name">
+            Author Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Katherine Bishop"
+            required
+            aria-required="true"
+          />
+
+        </div>
+
+        <div class="form__span-across grid form__field">
+
+          <label for="author-description">Author Description</label>
+          <textarea
+            type="text"
+            id="author-description"
+            name="author-description"
+            placeholder="Katherine Bishop is a specialist correspondent..."
+            cols="30"
+            rows="5"
+            required
+            aria-required="true"
+          >
+          </textarea>
+
+        </div>
+
+        <div class="grid form__field">
+
+          <label for="article-title">
+            Article Title
+          </label>
+          <input
+            type="text"
+            id="article-title"
+            name="article-title"
+            placeholder="Skydive Over Tanoa"
+            required
+            aria-required="true"
+          />
+
+        </div>
+
+        <div class="grid form__field">
+
+          <label for="tag-select">
+            Article Tag
+          </label>
+          <div class="form__select">
+            <i></i>
+            <select
+              id="tag-select"
+              name="tag-select"
+              required
+              aria-required="true"
+            >
+              <option value="">Select Tag</option>
+
+              {{ range .Site.Taxonomies.tags }}
+                <option value="{{ .Page.Title }}">
+                  {{ .Page.Title }}
+                </option>
+              {{ end }}
+
+            </select>
+          </div>
+
+        </div>
+
+        <div class="form__span-across grid form__field">
+
+          <label for="article-description">
+            Article Description
+          </label>
+          <textarea
+            name="article-description"
+            id="article-description"
+            cols="30"
+            rows="5"
+            placeholder="Skydiving has taken over Tanoa with cost-effective lessons..."
+            required
+            aria-required="true"
+          >
+          </textarea>
+
+        </div>
+
+        <label
+          for="photo"
+          class="form__photo
+          form__span-across"
+        >
+          <span id="file-result">Attach Photos</span>
+          <input
+            name="photo"
+            id="photo"
+            type="file"
+            accept="image/*"
+            multiple
+            required
+            aria-required="true"
+          />
+        </label>
+
+        <div class="form__span-across grid form__field">
+
+          <label for="article">
+            Article Body
+          </label>
+          <textarea
+            name="message"
+            id="article"
+            cols="30"
+            rows="10"
+            placeholder="Skydiving is the new trend for tourists and locals alike in Tanoa..."
+            required
+            aria-required="true"
+          >
+          </textarea>
+
+        </div>
+
+        <button
+          class="button"
+          type="submit"
+          id="form-submit"
+        >
+          Submit Article
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+{{ partial "seo/page-schema.html" . }}
+
+{{ end }}

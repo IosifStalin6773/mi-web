@@ -1,0 +1,12 @@
+name = "AAN World News"
+license = "MIT"
+licenselink = "https://github.com/jacobproffer/aan-world-news/blob/master/themes/aan-world-news/LICENSE"
+description = "Fictional Arma 3 / AAN World News theme."
+homepage = "https://aan-news.proffer.dev"
+tags = ["news", "articles", "schema", "responsive", "mobile", "grid", "accessible"]
+features = ["profiles"]
+min_version = "0.65.0"
+
+[author]
+  name = "Jacob Proffer"
+  homepage = "https://proffer.dev"

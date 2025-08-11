@@ -1,0 +1,30 @@
+<div class="site-header">
+  <div class="site-header__top">
+    <div class="container container--wide">
+      <div class="grid site-header__grid">
+
+        <header class="site-header__site-logo-wrap">
+          <a
+            class="site-header__site-logo"
+            href="{{ .Site.BaseURL }}"
+            aria-label="Go to home page"
+          >
+            {{ partial "svg/logo.html" }}
+          </a>
+        </header>
+
+        {{ if .Site.Menus.internal }}
+          {{ partial "navigation/internal-navigation.html" . }}
+        {{ end }}
+
+      </div>
+      
+      <nav class="navigation navigation--primary" aria-label="primary">
+        {{ partial "navigation/main-navigation" . }}
+      </nav>
+
+      {{ partial "navigation/mobile-navigation" . }}
+
+    </div>
+  </div>
+</div>

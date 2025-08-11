@@ -1,0 +1,28 @@
+<ul
+  class="unstyled-list"
+  role="list"
+>
+
+  {{ $currentPage := . }}
+
+  {{ range .Site.Menus.main }}
+
+    {{ if .URL }}
+    
+      <li>
+        <a
+          class="no-underline"
+          {{ if $currentPage.IsMenuCurrent "main" . }}
+            aria-current="page"
+          {{ end }}
+            href="{{ .URL }}"
+        >
+          {{ .Name }}
+        </a>
+      </li>
+      
+    {{ end }}
+
+  {{ end }}
+
+</ul>

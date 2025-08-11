@@ -1,0 +1,31 @@
+<article class="list__article list__article--summary">
+
+  {{ if (.GetTerms "tags") }}
+
+    {{ range (.GetTerms "tags") }}
+
+      <span class="tag">
+        {{ .LinkTitle }}
+      </span>
+
+    {{ end }}
+
+  {{ end }}
+
+  <h2 class="h3 red">
+    {{ .Title }}
+  </h2>
+
+  {{ if .Params.description }}
+  
+    <p>{{ .Params.description }}</p>
+    
+  {{ end }}
+
+  <a
+    class="list__article-link"
+    href="{{ .Permalink }}"
+    aria-label="Go to {{ .Title }}"
+  >
+  </a>
+</article>

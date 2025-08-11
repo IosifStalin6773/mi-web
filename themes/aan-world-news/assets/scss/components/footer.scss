@@ -1,0 +1,15 @@
+.site-footer {
+  padding-top: 12px;
+  background-color: var(--red);
+
+  &__logo {
+    @include size(114px, 40px);
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 8px;
+
+    svg {
+      @include size(100%);
+    }
+  }
+}

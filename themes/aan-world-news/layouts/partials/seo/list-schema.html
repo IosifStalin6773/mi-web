@@ -1,0 +1,23 @@
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": {{ .Permalink }},
+    "name": "News Articles",
+    "description": "A collection of news articles published by ANN News",
+    "publisher": [
+      {
+        "@type": "Organization",
+        "name": "AAN News",
+        "logo": [
+          {
+            "@type": "ImageObject",
+            "url": {{ .Site.Params.logo }},
+            "width": "386",
+            "height": "104"
+          }
+        ]
+      }
+    ]
+  }
+</script>

@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+  <section class="list gray-background">
+    <div class="container container--wide container--white">
+
+      <h1
+        class="visually-hide"
+        id="list-headline"
+      >
+        {{ .Title | singularize }}
+      </h1>
+
+      <ul
+        class="grid grid--four-column list__grid"
+        aria-labelledby="list-headline"
+        role="list"
+      >
+
+        {{ range .Pages }}
+
+          <li>
+
+            {{ .Render "summary" }}
+
+          </li>
+
+        {{ end }}
+
+      </ul>
+
+    </div>
+  </section>
+
+  {{ partial "seo/list-schema.html" . }}
+
+{{ end }}

@@ -1,0 +1,133 @@
+:root {
+  --container: 1270px;
+  --post-container: 760px;
+  --spacing: 35px;
+  --white: #fff;
+  --black: #000;
+  --red: #851514;
+  --medium-red: #6b1111;
+  --dark-red: #430b0c;
+  --gray: #f4f4f4;
+  --medium-gray: #e5e5e5;
+  --dark-gray: #6b6b6b;
+  --border: #e7e7e7;
+
+  @include screen-below($laptop) {
+    --container: 952px;
+  }
+
+  @include screen-below($tablet) {
+    --container: 840px;
+  }
+
+  @include screen-below($portrait) {
+    --container: 635px;
+    --post-container: 570px;
+  }
+
+  @include screen-below($mobile) {
+    --container: 92.5%;
+    --post-container: 85%;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+::selection {
+  color: var(--white);
+  background: var(--red);
+}
+
+* {
+  &:focus {
+    outline: 1px dotted var(--dark-gray);
+    outline-offset: 2px;
+  }
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 200;
+  color: var(--black);
+  text-rendering: optimizeSpeed;
+  background-color: var(--red);
+
+  @include screen-above($tablet) {
+    font-size: 18px;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+figure {
+  margin: 40px 0;
+
+  @include screen-below($mobile) {
+    margin: 25px 0;
+  }
+}
+
+figcaption {
+  p {
+    margin: 0;
+    color: var(--dark-gray);
+    font-size: 1rem;
+  }
+}
+
+:is(ul, ol)[role="list"] {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+  list-style-position: inside;
+
+  li {
+    line-height: 2;
+  }
+}
+
+a {
+  color: inherit;
+  transition: color 300ms ease-in-out, outline 300ms ease-in-out, text-decoration 300ms ease-in-out;
+
+  &:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  &[aria-current="page"] {
+    text-decoration: underline;
+  }
+
+  @include hover {
+    color: var(--dark-gray);
+    outline: dotted 1px var(--dark-gray);
+  }
+}
+
+hr {
+  @include size(100%, 1px);
+  display: block;
+  padding: 0;
+  margin: 2rem 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+
+  @include screen-below($mobile) {
+    margin: 1.5rem 0;
+  }
+}
