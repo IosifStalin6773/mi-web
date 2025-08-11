@@ -1,0 +1,60 @@
+baseURL = "https://aan-news.proffer.dev"
+languageCode = "en-us"
+title = "AAN World News"
+theme = "aan-world-news"
+enableRobotsTXT = true
+
+[params]
+  description = "AAN is a privately-owned, independent news broadcaster that provides global coverage of worldwide events and conflicts."
+  subTitle = "Our World, Your News"
+  images = ["/images/aan-social.jpg"]
+  logo = "/images/aan-world-news-logo.png"
+
+[taxonomies]
+  profile = "profiles"
+  tag = "tags"
+  category = "categories"
+
+[menu]
+
+  [[menu.main]]
+    identifier = "asia"
+    name = "Asia"
+    pageRef = "/tags/asia/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "europe"
+    name = "Europe"
+    pageRef = "/tags/europe/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "middle-east"
+    name = "Middle East"
+    pageRef = "/tags/middle-east/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "oceania"
+    name = "Oceania"
+    pageRef = "/tags/oceania/"
+    weight = 4
+
+  [[menu.main]]
+    identifier = "usa"
+    name = "USA"
+    pageRef = "/tags/usa/"
+    weight = 5
+
+  [[menu.internal]]
+    identifier = "about"
+    name = "About"
+    pageRef = "/about/"
+    weight = 1
+
+  [[menu.internal]]
+    identifier = "submit"
+    name = "Submit"
+    pageRef = "/submit/"
+    weight = 2
